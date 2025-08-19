@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
 // Get All Teams
 router.get("/", async (req, res) => {
   try {
-    const teams = await Team.find().populate("members");
+    const teams = await Team.find();
     res.json(teams);
   } catch (err) {
     res.status(500).json({ error: "Server error" });
