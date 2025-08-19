@@ -36,7 +36,7 @@ app.use("/api/logs", require("./routes/logRoutes"));
 
 // Root route
 app.get("/", (req, res) => {
-  res.send("Project Collaboration Tool API is running");
+  res.send("Project Collaboration Tool is running");
 });
 
 const PORT = process.env.PORT || 5000;

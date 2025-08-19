@@ -43,4 +43,10 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Get all users (for testing)
+router.get("/", async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
+
 module.exports = router;
