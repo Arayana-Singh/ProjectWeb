@@ -1,16 +1,25 @@
 const express = require("express");
-const Team = require("../models/Team");
+const Project = require("../models/Project");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  const team = new Team({ ...req.body });
-  await team.save();
-  res.json(team);
+  const project = new Project(req.body);
+  await project.save();
+  res.json(project);
+});
+
+router.get("/:teamId", async (req, res) => {
+  const projects = await Project.find({ team: req.params.teamId });
+  res.json(projects);
 });
 
 router.get("/", async (req, res) => {
-  const teams = await Team.find().populate("members");
-  res.json(teams);
+  try {
+    const projects = await Project.find();
+    res.json(projects);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = router;
