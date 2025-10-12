@@ -30,8 +30,8 @@ const theme = createTheme({
     },
     background: {
       default: "#f5f5f5",
-      paper: "#ffffff"
-    }
+      paper: "#ffffff",
+    },
   },
   typography: {
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
@@ -111,15 +111,15 @@ function App() {
         <Router>
           <CssBaseline />
           <Navbar />
-          <Container 
-            maxWidth="lg" 
-            sx={{ 
+          <Container
+            maxWidth="lg"
+            sx={{
               mt: { xs: 2, sm: 4 },
               px: { xs: 1, sm: 2, md: 3 },
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              minHeight: 'calc(100vh - 64px)'
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              minHeight: "calc(100vh - 64px)",
             }}
           >
             <Routes>

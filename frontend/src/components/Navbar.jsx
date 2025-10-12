@@ -9,7 +9,7 @@ import {
   Menu,
   MenuItem,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [anchorEl, setAnchorEl] = useState(null);
   const isAuthenticated = localStorage.getItem("token");
 
@@ -37,11 +37,11 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar 
-      position="static" 
+    <AppBar
+      position="static"
       elevation={2}
       sx={{
-        background: 'linear-gradient(45deg, #1976d2 30%, #2196f3 90%)',
+        background: "linear-gradient(45deg, #1976d2 30%, #2196f3 90%)",
       }}
     >
       <Toolbar sx={{ padding: { xs: 1, sm: 2 } }}>
@@ -49,16 +49,16 @@ const Navbar = () => {
           variant="h6"
           component={Link}
           to="/"
-          sx={{ 
-            flexGrow: 1, 
-            textDecoration: "none", 
+          sx={{
+            flexGrow: 1,
+            textDecoration: "none",
             color: "inherit",
-            fontWeight: 'bold',
-            fontSize: { xs: '1.2rem', sm: '1.5rem' },
-            letterSpacing: '0.5px',
-            '&:hover': {
+            fontWeight: "bold",
+            fontSize: { xs: "1.2rem", sm: "1.5rem" },
+            letterSpacing: "0.5px",
+            "&:hover": {
               opacity: 0.9,
-            }
+            },
           }}
         >
           TeamMates
@@ -78,13 +78,13 @@ const Navbar = () => {
               id="menu-appbar"
               anchorEl={anchorEl}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorEl)}
               onClose={handleClose}
@@ -94,19 +94,25 @@ const Navbar = () => {
                   <MenuItem component={Link} to="/teams" onClick={handleClose}>
                     Teams
                   </MenuItem>
-                  <MenuItem component={Link} to="/projects" onClick={handleClose}>
+                  <MenuItem
+                    component={Link}
+                    to="/projects"
+                    onClick={handleClose}
+                  >
                     Projects
                   </MenuItem>
-                  <MenuItem onClick={handleLogout}>
-                    Logout
-                  </MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </>
               ) : (
                 <>
                   <MenuItem component={Link} to="/login" onClick={handleClose}>
                     Login
                   </MenuItem>
-                  <MenuItem component={Link} to="/register" onClick={handleClose}>
+                  <MenuItem
+                    component={Link}
+                    to="/register"
+                    onClick={handleClose}
+                  >
                     Register
                   </MenuItem>
                 </>
@@ -114,48 +120,58 @@ const Navbar = () => {
             </Menu>
           </>
         ) : (
-          <Box sx={{ display: 'flex', gap: 1 }}>
+          <Box sx={{ display: "flex", gap: 1 }}>
             {isAuthenticated ? (
               <>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
+                <Button
+                  color="inherit"
+                  component={Link}
                   to="/teams"
-                  sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+                  sx={{
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+                  }}
                 >
                   Teams
                 </Button>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
+                <Button
+                  color="inherit"
+                  component={Link}
                   to="/projects"
-                  sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+                  sx={{
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+                  }}
                 >
                   Projects
                 </Button>
-                <Button 
-                  color="inherit" 
+                <Button
+                  color="inherit"
                   onClick={handleLogout}
-                  sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+                  sx={{
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+                  }}
                 >
                   Logout
                 </Button>
               </>
             ) : (
               <>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
+                <Button
+                  color="inherit"
+                  component={Link}
                   to="/login"
-                  sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+                  sx={{
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+                  }}
                 >
                   Login
                 </Button>
-                <Button 
-                  color="inherit" 
-                  component={Link} 
+                <Button
+                  color="inherit"
+                  component={Link}
                   to="/register"
-                  sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.1)' } }}
+                  sx={{
+                    "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+                  }}
                 >
                   Register
                 </Button>
